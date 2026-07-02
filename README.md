@@ -70,7 +70,7 @@ The pipeline generates processed tables, statistical results and figures inside 
 2. Extract single-channel features: RMS, median frequency, Dimitrov index and sample entropy.
 3. Extract channel-pair connectivity features: magnitude-squared coherence and imaginary coherence.
 4. Run independent and paired statistical tests.
-5. Run adjusted GLM/GEE-style models controlling for age and vaginal deliveries.
+5. Run adjusted GLM models controlling for age and vaginal deliveries.
 6. Export result tables and plots.
 
 ## Privacy note
