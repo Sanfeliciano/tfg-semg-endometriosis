@@ -70,7 +70,7 @@ Converts heterogeneous patient ID strings (e.g. `"NHC_001"`, `"Endo01"`) to a pl
 | `[2/5]` | Runs independent and paired statistical tests |
 | `[3/5]` | Loads clinical data, runs the adjusted GLM, exports SPSS dataset as CSV |
 | `[4/5]` | Generates boxplots for every feature × phase combination |
-| `[5/5]` | Generates heatmaps, effect-size chart, and all arrow summary tables |
+| `[5/5]` | Generates all arrow summary tables and forest plots |
 
 ### `_print_significant_details_console(df_indep, df_pair, df_glm, alpha, max_rows)`
 
@@ -354,30 +354,6 @@ Generates a grid of boxplots — one subplot per channel or channel pair — com
 - White boxes with black outlines; individual data points overlaid as a strip plot (black = Endometriosis, grey = Control).
 - Saved to `output_dir/BOXPLOT_{MOMENTO}_{FEATURE}.png` at 300 dpi.
 - Called from `main.py` for every feature × {PRE, GLOBAL} combination.
-
----
-
-#### `plot_pvalue_distribution(df_indep, df_pair)`
-
-Draws two histograms of p-value distributions (independent tests on the left, paired on the right) with a dashed red line at p=0.05. Useful to visually assess whether the tests are well-calibrated. *Not called from `main.py`* — used for exploratory analysis.
-
----
-
-#### `plot_pvalue_heatmap(df_results, titulo, output_dir, filename)`
-
-Generates a heatmap where:
-- Rows = `Feature (Channel)` labels.
-- Columns = comparison names (e.g. `"Control vs week_8"`).
-- Non-significant cells (p ≥ 0.05) are shown in light blue.
-- Significant cells (p < 0.05) are colour-coded `yellow → orange → red` and annotated with the exact p-value.
-
-Called twice from `main.py`: once for independent results, once for paired results.
-
----
-
-#### `plot_effect_sizes(df_results, titulo, output_dir, filename)`
-
-Horizontal bar chart of effect sizes for significant results only. Bars pointing right are teal (positive effect), left are salmon (negative). Reference lines at |0.1|, |0.3|, |0.5| mark small/medium/large thresholds. Limited to the top 30 results by absolute effect size if there are more than 30. Called once from `main.py` for the independent results.
 
 ---
 

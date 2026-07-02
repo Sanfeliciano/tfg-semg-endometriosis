@@ -10,8 +10,6 @@ from src.signal.process_all import process_all
 from src.stats.statistics_ import compute_full_statistics, fit_adjusted_glm
 from src.plots.visualization import (
     generate_separated_boxplots,
-    plot_pvalue_heatmap,
-    plot_effect_sizes,
     generate_summary_arrow_table,
     generate_paired_arrow_table,
     generate_glm_arrow_tables,
@@ -139,12 +137,9 @@ for feat in df_viz["feature"].dropna().unique():
 
 
 # ============================================================
-# 5) HEATMAPS + SUMMARY TABLES
+# 5) SUMMARY TABLES
 # ============================================================
-print("[5/5] Generating Heatmaps...")
-plot_pvalue_heatmap(df_indep, "Healthy vs Endometriosis", PATHS["out_plots"], "heatmap_indep.png")
-plot_pvalue_heatmap(df_pair, "Evolution", PATHS["out_plots"], "heatmap_pareado.png")
-plot_effect_sizes(df_indep, "Independent Effect", PATHS["out_plots"], "efectos_indep.png")
+print("[5/5] Generating Summary Tables...")
 
 generate_summary_arrow_table(df_indep, df_endo, df_control, output_dir=PATHS["out_stats"])
 generate_paired_arrow_table(df_pair, df_endo, output_dir=PATHS["out_stats"])
