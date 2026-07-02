@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# IDE
+.idea/
+.vscode/
+
+# Data and generated outputs
+/data/Signals/*
+/data/Segmentations/*
+/data/Clinical/*
+/results/*
+!results/.gitkeep
+!results/tables/
+!results/tables/.gitkeep
+!results/plots/
+!results/plots/.gitkeep
+
+# Large/generated files
+*.mat
+*.xlsx
+*.xls
+*.csv
+*.docx
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+
+# Keep example figures in docs/
+!docs/**/*.png
+!docs/**/*.jpg
